@@ -30,7 +30,7 @@
 <script>
 export default {
     inheritAttrs: false,
-    name: 'ak-table',
+    name: 'al-table',
     props: {
         // 表格的数据（对应el-table的data）
         data: {
