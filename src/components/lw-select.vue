@@ -43,7 +43,7 @@ export default {
                 return this.model;
             },
             set: function (value) {
-                this.$emit('update:model', value); 
+                this.$emit('update:model', value);  //v-model.sync 传递给父组件
             }
 /**                 
             <!--v-model写法--> 一般针对于表单事件
@@ -76,6 +76,15 @@ export default {
                 :value="msg" 
                 @update:value="(val) => value = val"
             >
+
+--------------------------------------------------------------------------------
+
+            Vue 提供了一个 $listeners 属性，它是一个对象，里面包含了作用在这个组件上的所有监听器。
+                            $listeners它是一个对象，里面包含了作用在这个组件上所有的监听器（监听事件），
+                            并且可以通过 v-on="$listeners" 将事件监听指向这个组件内的子元素（包括内部的子组件）
+                            
+                            $attrs包含了所以父组件在子组件上设置的属性（除了prop传递的属性、class 和 style ）
+
  */                 
             
         },
