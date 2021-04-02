@@ -70,7 +70,7 @@ export default {
             let dom = document.getElementById('treeChart');
             vm.myChart = echarts.init(dom);
 
-            // 添加窗口resize事件
+            // 添加窗口resize事件监听
             window.addEventListener('resize', vm.handleChartResize);
 
             vm.myChart.on('click', function(param) {
@@ -97,30 +97,30 @@ export default {
                 series: [
                     {
                         type: 'tree',
-                        top: '1%',
-                        left: '12%',
-                        bottom: '1%',
-                        right: '20%',
-                        symbolSize: 16,
-                        itemStyle: {
+                        top: '1%',          //tree组件离容器上侧的距离
+                        left: '12%',        //tree组件离容器左侧的距离
+                        bottom: '1%',       //tree组件离容器下侧的距离
+                        right: '20%',       //tree组件离容器右侧的距离
+                        symbolSize: 16,     //节点的大小
+                        itemStyle: {        //节点的样式
                             normal: {
                                 color: '#2A83E1',
                                 borderColor: '#2A83E1',
                                 borderWidth: 5,
                             }
                         },
-                        lineStyle: {
+                        lineStyle: {        //线条的样式
                             normal: {
-                                color: '#2A83E1'
+                                color: '#2A83E1' 
                             }
                         },
-                        label: {
+                        label: {            //每个节点所对应的文本标签的样式
                             normal: {
                                 position: 'left',
                                 verticalAlign: 'middle',
                                 align: 'right',
                                 fontSize: 16,
-                                formatter: function ({ name }) {
+                                formatter: function ({ name }) {   //标签内容格式器，支持字符串模板和回调函数两种形式
                                     // 图例文本超长时，显示省略号
                                     if (name && name.length > 16) {
                                         name = name.substr(0, 16) + '...';
@@ -129,7 +129,7 @@ export default {
                                 },
                             }
                         },
-                        leaves: {
+                        leaves: {           //叶子节点的特殊配置
                             label: {
                                 normal: {
                                     position: 'right',
@@ -138,9 +138,9 @@ export default {
                                 }
                             }
                         },
-                        expandAndCollapse: true,
-                        animationDuration: 550,
-                        animationDurationUpdate: 750
+                        expandAndCollapse: true,        //子树折叠和展开的交互，默认打开
+                        animationDuration: 550,         //初始动画的时长
+                        animationDurationUpdate: 750    //数据更新动画的时长
                     }
                 ]
             };
